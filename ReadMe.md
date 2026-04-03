@@ -2,13 +2,31 @@
 
 Finance Data Processing and Access Control Backend
 
-## Features implemented
+## Features Implemented
 
-- User authentication (JWT)
-- Role-based access control (ADMIN, ANALYST, VIEWER)
-- Admin user management
-- Financial records CRUD (create, update, delete)
-- Record filtering (type, category, date)
+- User and Role Management (ADMIN, ANALYST, VIEWER)
+- JWT-based Authentication
+- Role-Based Access Control (RBAC)
+- Financial Records CRUD
+- Record Filtering (type, category, date)
+- Dashboard APIs:
+  - Summary (income, expense, balance)
+  - Category breakdown
+  - Monthly trends
+
+## Role Permissions
+
+- ADMIN:
+  - Manage users
+  - Full access to records and dashboard
+
+- ANALYST:
+  - View records
+  - Access dashboard analytics
+
+- VIEWER:
+  - Read-only access to dashboard
+  - No access to raw records
 
 ## Setup
 1. Install dependencies
