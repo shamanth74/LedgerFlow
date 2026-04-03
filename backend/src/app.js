@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
+const recordRoutes = require('./routes/record.routes');
 
 // Middleware
 app.use(express.json());
@@ -15,4 +16,6 @@ app.get('/', (req, res) => {
 
 app.use('/users', userRoutes);
 app.use('/auth', authRoutes);
+
+app.use('/records', recordRoutes);
 module.exports = app;
