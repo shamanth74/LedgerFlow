@@ -2,11 +2,13 @@
 
 Finance Data Processing and Access Control Backend
 
-## Features (so far)
+## Features implemented
+
 - User authentication (JWT)
 - Role-based access control (ADMIN, ANALYST, VIEWER)
-- Admin-controlled user creation
-- PostgreSQL database with schema
+- Admin user management
+- Financial records CRUD (create, update, delete)
+- Record filtering (type, category, date)
 
 ## Setup
 1. Install dependencies
