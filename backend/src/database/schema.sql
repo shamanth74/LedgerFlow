@@ -1,0 +1,22 @@
+-- Create Users Table
+CREATE TABLE IF NOT EXISTS users (
+  id UUID PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  password TEXT NOT NULL,
+  role VARCHAR(20) NOT NULL CHECK (role IN ('ADMIN', 'ANALYST', 'VIEWER')),
+  status VARCHAR(20) DEFAULT 'ACTIVE',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create Records Table
+CREATE TABLE IF NOT EXISTS records (
+  id UUID PRIMARY KEY,
+  amount DECIMAL(10,2) NOT NULL,
+  type VARCHAR(10) NOT NULL CHECK (type IN ('income', 'expense')),
+  category VARCHAR(50),
+  date DATE NOT NULL,
+  notes TEXT,
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
