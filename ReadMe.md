@@ -4,6 +4,26 @@
 
 A production-grade REST API implementing role-based access control (RBAC), financial records management, dashboard analytics, audit logging, and soft-delete recovery for a finance data platform.
 
+📬 API Documentation
+--------------------
+
+Explore and test all APIs using the published Postman documentation:
+
+🔗 [https://documenter.getpostman.com/view/36791297/2sBXionWAJ](https://documenter.getpostman.com/view/36791297/2sBXionWAJ)
+
+### How to Use
+
+1.  Open the link above
+    
+2.  Review endpoints and request/response examples
+    
+3.  To test locally:
+    
+    *   Start the backend server
+        
+    *   Use http://localhost:5000 as base URL
+        
+    *   Authenticate via /auth/login to get a token
 ---
 
 ## 🚀 Tech Stack
