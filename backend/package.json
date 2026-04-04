@@ -1,13 +1,15 @@
 {
-  "name": "backend",
+  "name": "ledgerflow-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Finance Data Processing and Access Control Backend",
+  "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
+    "start": "node server.js",
+    "seed": "node src/scripts/seedAdmin.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["finance", "backend", "rbac", "nodejs", "express", "postgresql"],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
@@ -15,6 +17,8 @@
     "bcrypt": "^6.0.0",
     "dotenv": "^17.4.0",
     "express": "^5.2.1",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.3",
     "pg": "^8.20.0",
     "uuid": "^13.0.0"

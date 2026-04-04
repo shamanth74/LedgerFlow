@@ -1,28 +1,26 @@
 const dashboardService = require('../services/dashboard.service');
+const asyncHandler = require('../utils/asyncHandler');
 
-exports.getSummary = async (req, res) => {
-  try {
-    const data = await dashboardService.getSummary();
-    res.json(data);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-};
+exports.getSummary = asyncHandler(async (req, res) => {
+  const userId = req.query.userId || null;
+  const data = await dashboardService.getSummary(userId);
+  res.json({ success: true, data });
+});
 
-exports.getCategoryBreakdown = async (req, res) => {
-  try {
-    const data = await dashboardService.getCategoryBreakdown();
-    res.json(data);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-};
+exports.getCategoryBreakdown = asyncHandler(async (req, res) => {
+  const userId = req.query.userId || null;
+  const data = await dashboardService.getCategoryBreakdown(userId);
+  res.json({ success: true, data });
+});
 
-exports.getTrends = async (req, res) => {
-  try {
-    const data = await dashboardService.getTrends();
-    res.json(data);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-};
+exports.getMonthlyTrends = asyncHandler(async (req, res) => {
+  const userId = req.query.userId || null;
+  const data = await dashboardService.getMonthlyTrends(userId);
+  res.json({ success: true, data });
+});
+
+exports.getWeeklyTrends = asyncHandler(async (req, res) => {
+  const userId = req.query.userId || null;
+  const data = await dashboardService.getWeeklyTrends(userId);
+  res.json({ success: true, data });
+});

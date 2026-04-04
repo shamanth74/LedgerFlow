@@ -6,7 +6,9 @@ const authenticate = require('../middlewares/authenticate');
 const authorize = require('../middlewares/authorize');
 const ROLES = require('../utils/roles');
 
-// Summary
+// All dashboard endpoints accessible to all authenticated roles
+
+// GET /dashboard/summary — Total income, expense, balance
 router.get(
   '/summary',
   authenticate,
@@ -14,7 +16,7 @@ router.get(
   dashboardController.getSummary
 );
 
-// Category breakdown
+// GET /dashboard/categories — Category-wise breakdown
 router.get(
   '/categories',
   authenticate,
@@ -22,12 +24,20 @@ router.get(
   dashboardController.getCategoryBreakdown
 );
 
-// Trends
+// GET /dashboard/trends/monthly — Monthly income/expense trends
 router.get(
-  '/trends',
+  '/trends/monthly',
   authenticate,
   authorize([ROLES.ADMIN, ROLES.ANALYST, ROLES.VIEWER]),
-  dashboardController.getTrends
+  dashboardController.getMonthlyTrends
+);
+
+// GET /dashboard/trends/weekly — Weekly income/expense trends (last 12 weeks)
+router.get(
+  '/trends/weekly',
+  authenticate,
+  authorize([ROLES.ADMIN, ROLES.ANALYST, ROLES.VIEWER]),
+  dashboardController.getWeeklyTrends
 );
 
 module.exports = router;
