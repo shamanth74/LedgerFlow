@@ -344,6 +344,3 @@ All dashboard endpoints accept optional `?userId=<uuid>` to scope data.
 
 ---
 
-## 📄 License
-
-ISC
